@@ -1,27 +1,49 @@
-# CeesolutionAssignment
+# CeeSolution Assignment
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
+A brief description of your project.
 
-## Development server
+## Table of Contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1.Getting Started
+	Prerequisites
+	Installation
+4.Usage
+5.Features
+6.Contributing
+7.License
 
-## Code scaffolding
+Getting Started
+Prerequisites
+Make sure you have the following tools installed before proceeding:
+	Node.js
+	npm (Node Package Manager)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Installation
+1.Clone the repository:
+git clone https://github.com/ldehadray-18/Ceesolution-Assignment.git
 
-## Build
+2.Navigate to the project directory:
+cd Ceesolution-Assignment
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3.Install dependencies:
+npm install
 
-## Running unit tests
+Usage
+1.Run the development server:
+  ng serve
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2.Open your browser and go to http://localhost:4200/ to use the Todo web application.
 
-## Running end-to-end tests
+Features
+Add new tasks with a task name, description, due date, priority and status.
+Mark tasks as Finished.
+Delete tasks.
+Simple and responsive user interface.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Contributing
 
-## Further help
+Contributions are welcome! If you have any ideas for improvement or find any issues, feel free to open an issue or submit a pull request.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Please follow the code of conduct in your contributions.
+
+
