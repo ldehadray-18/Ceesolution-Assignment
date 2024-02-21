@@ -1,0 +1,68 @@
+<form [formGroup]="ToDoForm">
+    <div class="container my-5">
+        <h3>Add Task</h3>
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex flex-row align-items-center my-2">
+                    <input type="text" class="form-control form-control-lg" id="TaskName" name="TaskName"
+                        placeholder="Task Name" formControlName="TaskName">
+
+                </div>
+                <div class="d-flex flex-row align-items-center my-2"
+                    *ngIf="ToDoForm.get('TaskName').invalid && (ToDoForm.get('TaskName').touched) || submitted">
+                    <div class="alert alert-danger" *ngIf="ToDoForm.get('TaskName').hasError('required')">
+                        field is required
+                    </div>
+                    <div class="alert alert-danger" *ngIf="ToDoForm.get('TaskName').hasError('minlength')">
+                        minimum character 3 </div>
+                </div>
+
+                <div class="d-flex flex-row align-items-center my-2">
+                    <input type="text" class="form-control form-control-lg" id="TaskDescription"
+                        placeholder="Task Description" name="TaskDescription" formControlName="TaskDescription">
+                </div>
+
+                <div class="d-flex flex-row align-items-center my-2">
+                    <input class="form-control me-1" placeholder="yyyy-mm-dd" id="TaskDueDate" [minDate]="minDate"
+                        name="TaskDueDate" ngbDatepicker #d="ngbDatepicker" formControlName="TaskDueDate">
+                    <button class="btn btn-outline-secondary calendar me-2" (click)="d.toggle()" type="button"><i
+                            class="bi bi-calendar"></i></button>
+
+                    <div ngbDropdown class="dropdown me-2">
+                        <button ngbDropdownToggle class="btn btn-primary" type="button" #priorityDropdownMenu
+                            id="priorityDropdownMenu" aria-expanded="false">
+                            Select Task Priority
+                        </button>
+                        <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+                            <li (click)="setPriorityDropDown('Low')" ngbDropdownItem>Low</li>
+                            <li (click)="setPriorityDropDown('High')" ngbDropdownItem>High</li>
+                            <li (click)="setPriorityDropDown('Critical')" ngbDropdownItem>Critical
+                            </li>
+                        </ul>
+                    </div>
+                    <div ngbDropdown class="dropdown">
+                        <button ngbDropdownToggle class="btn btn-primary" type="button" #statusDropdownMenu
+                            id="statusDropdownMenu" aria-expanded="false">
+                            Select Task Status
+                        </button>
+                        <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton2">
+                            <li (click)="setStatusDropDown('Pending')" ngbDropdownItem>Pending</li>
+                            <li (click)="setStatusDropDown('InProgress')" ngbDropdownItem>InProgress
+                            </li>
+                            <li (click)="setStatusDropDown('Finished')" ngbDropdownItem>Finished</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex flex-row align-items-center my-2">
+                    <div *ngIf="ToDoForm.controls.TaskDueDate.invalid && ToDoForm.controls.TaskDueDate.touched  || submitted"
+                        class="alert alert-danger">
+                        Please select a valid date.
+                    </div>
+                </div>
+                <div class="d-flex flex-row align-items-center my-2">
+                    <button type="submit" class="btn btn-primary" (click)="submit()">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

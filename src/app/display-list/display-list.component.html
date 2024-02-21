@@ -1,0 +1,40 @@
+<div class="container my-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-lg-9 col-xl-12">
+            <div class="card rounded-3">
+                <div class="card-body p-4">
+                    <h4 class="text-center my-3 pb-3">To Do List</h4>
+                    <table class="table mb-4">
+                        <thead>
+                            <tr>
+                                <th class="col-1">No.</th>
+                                <th class="col-3">Todo item</th>
+                                <th class="col-2">Priority</th>
+                                <th class="col-2">Status</th>
+                                <th class="col-2">Due Date</th>
+                                <th class="col-5">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let task of taskList; index as i"
+                                [ngClass]="{'text-decoration-line-through': task.TaskStatus=='Finished', '': task.TaskStatus!=='Finished'}">
+                                <td>{{i+1}}</td>
+                                <td>{{task.TaskName}}</td>
+                                <td>{{task.TaskPriority}}</td>
+                                <td>{{task.TaskStatus}}</td>
+                                <td>{{task.TaskDueDate}}</td>
+                                <td>
+                                    <button type="submit" (click)="deleteTask(task.TaskId)"
+                                        class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-success ms-1"
+                                        (click)="finishTask(task,i)">Finished</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
