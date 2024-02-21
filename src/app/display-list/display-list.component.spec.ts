@@ -10,8 +10,8 @@ describe('DisplayListComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [DisplayListComponent]
     })
-    .compileComponents();
-    
+
+      .compileComponents();
     fixture = TestBed.createComponent(DisplayListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

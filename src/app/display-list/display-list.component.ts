@@ -11,12 +11,11 @@ import { FormControl } from '@angular/forms';
 export class DisplayListComponent implements OnInit {
   taskList: any = {};
 
-  constructor(private TaskListService: TaskListService) {
-
-  }
+  constructor(private TaskListService: TaskListService) { }
   ngOnInit(): void {
     this.taskList = this.TaskListService.getSavedTasks();
   }
+
   deleteTask(taskId: number) {
     this.TaskListService.removeTask(taskId);
     this.taskList = this.TaskListService.getSavedTasks();

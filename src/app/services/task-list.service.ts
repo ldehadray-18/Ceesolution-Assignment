@@ -8,7 +8,6 @@ import { DropdownArray } from '../dropdown-array';
 export class TaskListService {
   private readonly localStorageKey = 'TaskList';
 
-
   saveTask(task: Taskmodel): void {
     task.TaskId = this.generateId();
     const savedTasks = this.getSavedTasks();
