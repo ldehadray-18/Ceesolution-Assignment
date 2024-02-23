@@ -1,9 +1,14 @@
 /* Defult links color */
 $color-links: #b6d0d4;
-$color-links-hover: #a6babd;
+$color-links-hover: #1f3f44;
 
 .nav-item:hover {
     text-decoration: none;
     text-decoration-color: $color-links;
     background-color: $color-links-hover;
+    border-radius: 10px;
+}
+
+.nav-item a:hover {
+    color: $color-links;
 }

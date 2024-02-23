@@ -1,9 +1,9 @@
-<div class="container my-5">
+<div class="container my-5 box-Shadow">
     <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col col-lg-9 col-xl-12">
+        <div class="col col-lg-9 col-xl-12 py-3">
             <div class="card rounded-3">
                 <div class="card-body p-4">
-                    <h4 class="text-center my-3 pb-3">To Do List</h4>
+                    <h4 class="text-center my-3 pb-3 changeColor">Todo List</h4>
                     <table class="table mb-4">
                         <thead>
                             <tr>
@@ -24,10 +24,17 @@
                                 <td>{{task.TaskStatus}}</td>
                                 <td>{{task.TaskDueDate}}</td>
                                 <td>
-                                    <button type="submit" (click)="deleteTask(task.TaskId)"
-                                        class="btn btn-danger">Delete</button>
-                                    <button type="submit" class="btn btn-success ms-1"
-                                        (click)="finishTask(task,i)">Finished</button>
+                                    <button type="submit" (click)="open(demoModal,task.TaskId,task.TaskName)"
+                                        class="deleteButton text-danger deleteButtonBorder border-danger">
+                                        <b>Delete</b>
+                                        <div class="deleteAnimation bg-danger">
+                                        </div>
+                                    </button>
+                                    <button type="submit" class=" ms-1 deleteButton text-success border-success "
+                                        (click)="finishTask(task,i)"> <b>Finished</b>
+                                        <div class="deleteAnimation bg-success">
+                                        </div>
+                                    </button>
                                 </td>
                             </tr>
                         </tbody>
@@ -37,3 +44,22 @@
         </div>
     </div>
 </div>
+<ng-template #demoModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Delete Task</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <label for="deleteConfirm">Are you sure you want to delete the task
+                    <b>"{{confirmedTask.TaskName}}" </b>?</label>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark"
+            (click)="deleteTask();modal.close('Save click')">Delete</button>
+    </div>
+</ng-template>

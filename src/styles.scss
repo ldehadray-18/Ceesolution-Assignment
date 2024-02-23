@@ -1,3 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/scss/bootstrap";
 @import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+
+.box-Shadow {
+    box-shadow: 3px 5px 5px 5px rgb(205, 205, 231);
+}
+
+.changeColor {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 35px;
+    animation: ColorChange 5s 0s infinite;
+}
+
+@keyframes ColorChange {
+    0% {
+        color: red;
+    }
+
+    25% {
+        color: blue;
+    }
+
+    50% {
+        color: green;
+    }
+
+    75% {
+        color: yellow;
+    }
+
+    100% {
+        color: orange;
+    }
+
+}

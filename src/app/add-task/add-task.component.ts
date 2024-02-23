@@ -26,6 +26,7 @@ export class AddTaskComponent implements OnInit {
   priorityDropdown: FormControl | any;
   statusDropdown: FormControl | any;
   submitted = false;
+  AlertSuccessFail: boolean = false;
 
   setPriorityDropDown(value: string) {
     this.priorityDropdownbutton.nativeElement.innerText = value;
@@ -61,8 +62,9 @@ export class AddTaskComponent implements OnInit {
       this.task = this.ToDoForm.value;
       this.task.TaskDueDate = this.dateToString(this.task.TaskDueDate);
       this.TaskListervice.saveTask(this.task);
-      alert("Task Add Successfully");
+      this.AlertSuccessFail = true;
       this.submitted = false;
+      setTimeout(() => { this.AlertSuccessFail = false; }, 4000);
       this.ToDoForm.reset();
     }
   }

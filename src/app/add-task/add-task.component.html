@@ -1,7 +1,15 @@
 <form [formGroup]="ToDoForm">
-    <div class="container my-5">
-        <h3>Add Task</h3>
-        <div class="card">
+    <div class="container my-5 py-3 box-Shadow">
+
+        <div class="alert alert-success "
+            [ngClass]="{'displayNone':!AlertSuccessFail, 'display-block':AlertSuccessFail}" role="
+            alert">
+            <span class="AlertMessage">
+                Task Added Successfully!
+            </span>
+        </div>
+        <h3 class="changeColor">Add Task</h3>
+        <div class="card my-2">
             <div class="card-body">
                 <div class="d-flex flex-row align-items-center my-2">
                     <input type="text" class="form-control form-control-lg" id="TaskName" name="TaskName"
@@ -11,10 +19,10 @@
                 <div class="d-flex flex-row align-items-center my-2"
                     *ngIf="ToDoForm.get('TaskName').invalid && (ToDoForm.get('TaskName').touched) || submitted">
                     <div class="alert alert-danger" *ngIf="ToDoForm.get('TaskName').hasError('required')">
-                        field is required
+                        Field is required
                     </div>
                     <div class="alert alert-danger" *ngIf="ToDoForm.get('TaskName').hasError('minlength')">
-                        minimum character 3 </div>
+                        Minimum Task Name length 3 </div>
                 </div>
 
                 <div class="d-flex flex-row align-items-center my-2">

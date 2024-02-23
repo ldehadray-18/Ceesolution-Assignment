@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TaskListService } from '../services/task-list.service';
 import { Taskmodel } from '../taskmodel';
 import { FormControl } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-display-list',
@@ -10,15 +11,16 @@ import { FormControl } from '@angular/forms';
 })
 export class DisplayListComponent implements OnInit {
   taskList: any = {};
-
-  constructor(private TaskListService: TaskListService) { }
+  confirmedTask: any = { TaskId: 0, TaskName: '' };
+  constructor(private TaskListService: TaskListService, private modalService: NgbModal) { }
   ngOnInit(): void {
     this.taskList = this.TaskListService.getSavedTasks();
   }
 
-  deleteTask(taskId: number) {
-    this.TaskListService.removeTask(taskId);
+  deleteTask() {
+    this.TaskListService.removeTask(this.confirmedTask.TaskId);
     this.taskList = this.TaskListService.getSavedTasks();
+
   }
 
   finishTask(task: Taskmodel, index: any) {
@@ -26,4 +28,11 @@ export class DisplayListComponent implements OnInit {
     this.TaskListService.updateTask(task, index);
     this.taskList = this.TaskListService.getSavedTasks();
   }
+
+  public open(modal: any, taskId: number, taskName: string): void {
+    this.confirmedTask.TaskId = taskId;
+    this.confirmedTask.TaskName = taskName;
+    this.modalService.open(modal);
+  }
+
 }

@@ -1,0 +1,56 @@
+h3 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 35px;
+    animation: ColorChange 5s 0s infinite;
+}
+
+@keyframes ColorChange {
+    0% {
+        color: red;
+    }
+
+    25% {
+        color: blue;
+    }
+
+    50% {
+        color: green;
+    }
+
+    75% {
+        color: yellow;
+    }
+
+    100% {
+        color: orange;
+    }
+
+}
+
+.AlertMessage {
+    animation: AlertMessageFlow 3s 0s infinite;
+    position: relative;
+
+}
+
+@keyframes AlertMessageFlow {
+    0% {
+        left: 0%;
+    }
+
+    50% {
+        left: 50%;
+    }
+
+    100% {
+        left: 80%;
+    }
+
+}
+
+
+.displayNone {
+    display: none;
+}
